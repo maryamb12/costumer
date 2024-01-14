@@ -1,30 +1,54 @@
 package model;
 
+import java.util.concurrent.atomic.AtomicInteger;
+
 public abstract class Costumer {
+    private static final AtomicInteger ID_COUNTER =new AtomicInteger(1);
+    private Integer id;
     private String name;
     private String address;
     private String postalCode;
     private String phoneNumber;
     private CostumerType type;
+    private Boolean deleted;
 
     public Costumer (String name, String address,String postalCode, String phoneNumber,
                      CostumerType type){
+        this.id=ID_COUNTER.getAndIncrement();
         this.name=name;
         this.address=address;
         this.postalCode=postalCode;
         this.phoneNumber=phoneNumber;
         this.type=type;
+        this.deleted=false;
     }
 
 
     @Override
     public String toString(){
-        return "name:"+ this.name +"\t address: "+this.address+"\tpostal code: "
+        return "ID: "+this.id+"\tname:"+ this.name +"\t address: "+this.address+"\tpostal code: "
                 + this.postalCode+"\nPhone number: "+ this.phoneNumber;
     }
 
 
     //getters and setters
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public Boolean getDeleted() {
+        return deleted;
+    }
+
+    public void setDeleted(Boolean deleted) {
+        this.deleted = deleted;
+    }
+
     public CostumerType getType() {
         return type;
     }

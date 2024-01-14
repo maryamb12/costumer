@@ -1,8 +1,10 @@
-import service.Account;
+import View.ConsoleIU;
+import service.CostumerService;
 
 public class AplicatoinRunner {
     public static void main(String[] args) {
-        Account account=new Account();
-        account.Runner();
+        try(ConsoleIU consoleIU =new ConsoleIU()) {
+            consoleIU.startMenu();
+        }
     }
 }
