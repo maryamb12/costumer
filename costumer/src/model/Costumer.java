@@ -37,9 +37,6 @@ public abstract class Costumer {
         return id;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
 
     public Boolean getDeleted() {
         return deleted;

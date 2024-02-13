@@ -11,12 +11,12 @@ public class CostumerService {
 
     private static final CostumerService INSTANCE;
 
-    public static final CostumerService getInstance(){
-        return INSTANCE;
-    }
-
     static {
         INSTANCE= new CostumerService();
+    }
+
+    public static final CostumerService getInstance(){
+        return INSTANCE;
     }
 
     private CostumerService(){
