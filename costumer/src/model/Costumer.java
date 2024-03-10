@@ -31,6 +31,7 @@ public abstract class Costumer {
     }
 
 
+
     //getters and setters
 
     public Integer getId() {

@@ -1,10 +1,16 @@
-import View.ConsoleIU;
-import service.CostumerService;
+import View.ConsoleUI;
 
 public class AplicatoinRunner {
     public static void main(String[] args) {
-        try(ConsoleIU consoleIU =new ConsoleIU()) {
-            consoleIU.startMenu();
+        ConsoleUI consoleUI =new ConsoleUI();
+        try{
+            consoleUI.startMenu();
+        }catch (Throwable ex){
+            System.out.println("System Error!");
+            ex.printStackTrace();
+        }
+        finally {
+            consoleUI.close();
         }
     }
 }

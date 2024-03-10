@@ -21,6 +21,11 @@ public class LegalCostumer extends Costumer{
         return super.toString() +"\tfax number: "+this.faxNumber +"\tbusiness code:"
                 + this.businessCode + "\twebsite:" + this.webSiteAddress+"\n\n";
     }
+    @Override
+    public boolean equals(Object obj){
+        return (obj instanceof LegalCostumer &&
+                ((LegalCostumer) obj).getName().equals(getName()));
+    }
 
     public String getFaxNumber() {
         return faxNumber;

@@ -27,6 +27,12 @@ public class RealCostumer extends Costumer {
                 this.personalMobileNumber +"\tWorking Email:"+ this.workingEmail
                 +"Personal email:"+this.personalEmail+"\n\n";
     }
+@Override
+    public boolean equals(Object object){
+        return (object instanceof RealCostumer &&
+                ((RealCostumer) object).getName().equals(getName())
+        && ((RealCostumer) object).getFamily().equals(this.family));
+    }
 
     public String getFamily() {
         return family;
