@@ -41,7 +41,7 @@ public class CostumerService {
             throw new DuplicateCostumerException();
         }
         validationContext.validate(costumer);
-
+        costumer.increaseID();
         costumers.add(costumer);
     }
 

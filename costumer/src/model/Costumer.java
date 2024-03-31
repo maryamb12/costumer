@@ -14,7 +14,7 @@ public abstract class Costumer {
 
     public Costumer (String name, String address,String postalCode, String phoneNumber,
                      CostumerType type){
-        this.id=ID_COUNTER.getAndIncrement();
+        //this.id=ID_COUNTER.getAndIncrement();
         this.name=name;
         this.address=address;
         this.postalCode=postalCode;
@@ -23,6 +23,9 @@ public abstract class Costumer {
         this.deleted=false;
     }
 
+    public void increaseID(){
+        this.id=ID_COUNTER.getAndIncrement();
+    }
 
     @Override
     public String toString(){
