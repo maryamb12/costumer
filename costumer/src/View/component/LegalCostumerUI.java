@@ -3,6 +3,7 @@ package View.component;
 import Util.ScannerWrapper;
 import model.Costumer;
 import model.LegalCostumer;
+import service.Exception.ValidationException;
 
 import java.util.function.Function;
 
@@ -16,7 +17,7 @@ public class LegalCostumerUI extends AbstractCostumerUI {
 
 
     @Override
-    public Costumer generateCostumer() {
+    public Costumer generateCostumer(){
         String name = scannerWrapper.
                 getUserInfo("Enter Costumer name:", Function.identity());
         String address = scannerWrapper.

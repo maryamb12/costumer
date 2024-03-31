@@ -1,4 +1,4 @@
-package Util.Exception;
+package service.Exception;
 
 public class NoActiveCostumerException extends CostumerBasicException {
 

@@ -1,6 +1,6 @@
 package model;
 
-import Util.Exception.CostumerTypeException;
+import service.Exception.CostumerTypeException;
 
 public enum CostumerType {
     REALCOSTUMER(1),

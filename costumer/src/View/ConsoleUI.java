@@ -1,6 +1,6 @@
 package View;
 
-import Util.Exception.*;
+import service.Exception.*;
 import Util.ScannerWrapper;
 import View.component.AbstractCostumerUI;
 import model.Costumer;
@@ -86,6 +86,9 @@ public class ConsoleUI implements AutoCloseable {
             enterCostumer();
         }catch (CostumerTypeException e){
             System.out.println("Error: Wrong number! select again.");
+            enterCostumer();
+        }catch (ValidationException e){
+            System.out.println(e.getMessage());
             enterCostumer();
         }
     }

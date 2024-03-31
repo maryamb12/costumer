@@ -1,10 +1,12 @@
 package service;
 
 
-import Util.Exception.CostumerIDNotFindException;
-import Util.Exception.DuplicateCostumerException;
-import Util.Exception.NoActiveCostumerException;
+import service.Exception.CostumerIDNotFindException;
+import service.Exception.DuplicateCostumerException;
+import service.Exception.NoActiveCostumerException;
 import model.Costumer;
+import service.Exception.ValidationException;
+import service.validation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,6 +15,8 @@ import java.util.stream.Collectors;
 
 public class CostumerService {
     public ArrayList<Costumer> costumers = new ArrayList<>();
+
+    public ValidationContext<Costumer> validationContext;
 
     private static final CostumerService INSTANCE;
 
@@ -25,16 +29,19 @@ public class CostumerService {
     }
 
     private CostumerService(){
-
+        this.validationContext=new CostumerValidationContext();
     }
 
-    public void enterCostumer(Costumer costumer) throws DuplicateCostumerException{
+    public void enterCostumer(Costumer costumer) throws DuplicateCostumerException,
+            ValidationException {
         Optional<Costumer> any = costumers.stream()
                 .filter(it -> it.equals(costumer))
                 .findAny();
         if(any.isPresent()){
             throw new DuplicateCostumerException();
         }
+        validationContext.validate(costumer);
+
         costumers.add(costumer);
     }
 
