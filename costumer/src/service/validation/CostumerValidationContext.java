@@ -57,8 +57,7 @@ public class CostumerValidationContext extends ValidationContext<Costumer> {
                 }
             }
         });
-
-
+        
             //Working mobile validation
             addValidation(costumer -> {
                 if (costumer instanceof RealCostumer) {
